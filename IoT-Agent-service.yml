@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: ceph
   labels:
     name: iot-agent
   name: iot-agent
