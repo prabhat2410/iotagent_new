@@ -1,0 +1,11 @@
+stages:
+- name: Build
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./docker/Dockerfile
+      buildContext: .
+      tag: iot-agent:v1
+      pushRemote: true
+      registry: 10.0.8.61:31484
+timeout: 60
+notification: {}
