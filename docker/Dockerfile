@@ -1,7 +1,7 @@
 ARG NODE_VERSION=10.17.0-slim
 FROM node:${NODE_VERSION}
-ARG GITHUB_ACCOUNT=telefonicaid
-ARG GITHUB_REPOSITORY=iotagent-json
+ARG GITHUB_ACCOUNT=prabhat2410
+ARG GITHUB_REPOSITORY=iotagent_new
 ARG DOWNLOAD=latest
 ARG SOURCE_BRANCH=master
 
@@ -13,7 +13,17 @@ ENV GITHUB_ACCOUNT=${GITHUB_ACCOUNT}
 ENV GITHUB_REPOSITORY=${GITHUB_REPOSITORY}
 ENV DOWNLOAD=${DOWNLOAD}
 
-MAINTAINER FIWARE IoTAgent Team. Telefónica I+D
+ENV IOTA_CB_HOST=orion
+ENV IOTA_CB_PORT=1026
+ENV IOTA_NORTH_PORT=4041
+ENV IOTA_REGISTRY_TYPE=mongodb
+ENV IOTA_MONGO_HOST=mongodb
+ENV IOTA_MONGO_PORT=27017
+ENV IOTA_MONGO_DB=iotagent-json
+ENV IOTA_HTTP_PORT=7896
+ENV IOTA_PROVIDER_URL=http://iot-agent:4041
+
+#MAINTAINER FIWARE IoTAgent Team. Telefónica I+D
 
 # IMPORTANT: For a Production Environment Use Docker Secrets to define
 #  these values and add _FILE to the name of the variable.
@@ -83,3 +93,5 @@ EXPOSE ${IOTA_NORTH_PORT:-4041} ${IOTA_HTTP_PORT:-7896}
 
 ENTRYPOINT ["docker/entrypoint.sh"]
 CMD ["-- ", "config.js"]
+
+#curl -iX POST -H "Fiware-Service: myHome" -H "Fiware-ServicePath: /environment" -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{"devices": [{"device_id": "sensor01","entity_name": "LivingRoomSensor","entity_type": "multiSensor","attributes": [{ "object_id": "t", "name": "Temperature", "type": "celsius" }, { "object_id": "l", "name": "Luminosity", "type": "lumens" }]}]}' 'http://localhost:4041/iot/devices'
