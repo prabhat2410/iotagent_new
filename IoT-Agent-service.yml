@@ -5,7 +5,6 @@ metadata:
   labels:
     name: iot-agent
   name: iot-agent
-  role: iot-agent
 spec:
   type: NodePort
   ports:
