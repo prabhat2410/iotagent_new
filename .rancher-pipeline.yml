@@ -11,5 +11,13 @@ stages:
       PLUGIN_DEBUG: "true"
       PLUGIN_INSECURE: "true"
       PLUGIN_STORAGE_PATH: /var/lib/docker2
-timeout: 60
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+      path: ./IoT-Agent-Deployment.yml
+  - applyYamlConfig:
+      path: ./IoT-Agent-service.yml
+  - applyYamlConfig:
+      path: ./Ingress.yml
+timeout: 600
 notification: {}
