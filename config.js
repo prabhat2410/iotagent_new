@@ -141,12 +141,12 @@ config.iota = {
     /**
      * Configuration of the North Port of the IoT Agent.
      */
-    server: {
+    /**server: {
         /**
          * Port where the IoT Agent will be listening for NGSI and Provisioning requests.
-         */
+         
         port: 4041
-    },
+    },*/
 
     /**
      * Configuration for secured access to instances of the Context Broker secured with a PEP Proxy.
@@ -244,8 +244,10 @@ config.iota = {
     /**
      * URL Where the IoT Agent Will listen for incoming updateContext and queryContext requests (for commands and
      * passive attributes). This URL will be sent in the Context Registration requests.
-     */
-    providerUrl: 'http://localhost:4041',
+     *
+    *providerUrl: 'http://localhost:4041',
+    */
+    
     /**
      * Default maximum expire date for device registrations.
      */
