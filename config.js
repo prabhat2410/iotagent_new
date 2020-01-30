@@ -27,9 +27,9 @@ var config = {};
  */
 config.mqtt = {
     /**
-     * Host where the MQTT Broker is located.
+     * Host where the MQTT Broker is located. Richa: edited host:localhost to host:mqtt for iot unit test. 
      */
-    host: 'localhost',
+    host: 'mqtt',
     /**
      * Port where the MQTT Broker is listening.
      */
@@ -73,7 +73,7 @@ config.amqp = {
     /**
      * Host where the AMQP broker is located.
      */
-    host: 'localhost',
+    host: 'rabbitmq',
     /**
      * Port where the AMQP broker is listening.
      */
@@ -215,7 +215,7 @@ config.iota = {
          * Host where MongoDB is located. If the MongoDB used is a replicaSet, this property will contain a
          * comma-separated list of the instance names or IPs.
          */
-        host: 'localhost',
+        host: 'mongodb',
         /**
          * Port where MongoDB is listening. In the case of a replicaSet, all the instances are supposed to be listening
          * in the same port.
